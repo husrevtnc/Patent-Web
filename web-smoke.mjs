@@ -114,6 +114,16 @@ function findCliBinary() {
   throw new Error('Could not find the built patent CLI binary for comparison.');
 }
 
+function visibleTerminalText(data) {
+  // Ratatui can emit cursor-only redraws on slightly different schedules for
+  // the two PTYs. Compare rendered text, not timing-dependent ANSI controls.
+  return data.replace(/\x1b\[[0-?]*[ -/]*[@-~]/g, '');
+}
+
+function assertTerminalTextMatches(message) {
+  assert.equal(visibleTerminalText(output), visibleTerminalText(cliOutput), message);
+}
+
 function waitForCli(predicate, description) {
   const deadline = Date.now() + 10000;
   return new Promise((resolveWait, reject) => {
@@ -210,9 +220,9 @@ try {
   });
   await waitFor(() => /describe your dev-tool idea/i.test(output), 'the initial Patent TUI screen');
   await new Promise(resolveWait => setTimeout(resolveWait, 100));
-  assert.equal(output, cliOutput, 'web and CLI initial terminal output should match');
+  assertTerminalTextMatches('web and CLI initial terminal text should match');
   assert.doesNotMatch(output, /\x1b\[\?100[01256]h/, 'web TUI must leave mouse selection to the browser');
-  console.log('PASS CLI and WebSocket initial TUI output match');
+  console.log('PASS CLI and WebSocket initial terminal text match');
 
   const beforeResize = outputVersion;
   const beforeCliResize = cliOutputVersion;
@@ -221,7 +231,7 @@ try {
   await waitFor(() => outputVersion > beforeResize, 'resized TUI redraw');
   await waitForCli(() => cliOutputVersion > beforeCliResize, 'resized TUI redraw');
   await new Promise(resolveWait => setTimeout(resolveWait, 100));
-  assert.equal(output, cliOutput, 'web and CLI terminal output should match after a window resize');
+  assertTerminalTextMatches('web and CLI terminal text should match after a window resize');
   console.log('PASS WebSocket forwards terminal resize');
 
   const beforeRestore = outputVersion;
@@ -231,7 +241,7 @@ try {
   await waitFor(() => outputVersion > beforeRestore, 'restored TUI redraw');
   await waitForCli(() => cliOutputVersion > beforeCliRestore, 'restored TUI redraw');
   await new Promise(resolveWait => setTimeout(resolveWait, 100));
-  assert.equal(output, cliOutput, 'web and CLI output should match after restoring terminal size');
+  assertTerminalTextMatches('web and CLI terminal text should match after restoring terminal size');
 
   const beforeTyping = outputVersion;
   const beforeCliTyping = cliOutputVersion;
@@ -240,8 +250,8 @@ try {
   await waitFor(() => outputVersion > beforeTyping, 'typed search text redraw');
   await waitForCli(() => cliOutputVersion > beforeCliTyping, 'typed search text redraw');
   await new Promise(resolveWait => setTimeout(resolveWait, 100));
-  assert.equal(output, cliOutput, 'web and CLI typed terminal output should match');
-  console.log('PASS CLI and WebSocket text input output match');
+  assertTerminalTextMatches('web and CLI typed terminal text should match');
+  console.log('PASS CLI and WebSocket text input content match');
 
   const beforeShortcut = outputVersion;
   const beforeCliShortcut = cliOutputVersion;
@@ -250,8 +260,8 @@ try {
   await waitFor(() => outputVersion > beforeShortcut, 'Ctrl+Backspace redraw');
   await waitForCli(() => cliOutputVersion > beforeCliShortcut, 'Ctrl+Backspace redraw');
   await new Promise(resolveWait => setTimeout(resolveWait, 100));
-  assert.equal(output, cliOutput, 'web and CLI Ctrl+Backspace output should match');
-  console.log('PASS CLI and WebSocket Ctrl+Backspace output match');
+  assertTerminalTextMatches('web and CLI Ctrl+Backspace terminal text should match');
+  console.log('PASS CLI and WebSocket Ctrl+Backspace text match');
 
   const beforeCtrlA = outputVersion;
   const beforeCliCtrlA = cliOutputVersion;
@@ -272,8 +282,8 @@ try {
   await waitFor(() => outputVersion > beforeInsert, 'text insertion after Ctrl+A');
   await waitForCli(() => cliOutputVersion > beforeCliInsert, 'text insertion after Ctrl+A');
   await new Promise(resolveWait => setTimeout(resolveWait, 100));
-  assert.equal(output, cliOutput, 'web and CLI Ctrl+A cursor movement should match');
-  assert(output.includes('Xdemo'), 'Ctrl+A should move the input cursor to the beginning');
+  assertTerminalTextMatches('web and CLI Ctrl+A cursor movement should match');
+  assert(visibleTerminalText(output).includes('Xdemo'), 'Ctrl+A should move the input cursor to the beginning');
   console.log('PASS Ctrl+A moves the search cursor to the beginning');
 
   cliTerminal.write('\x03');
@@ -281,7 +291,7 @@ try {
   await waitFor(() => messages.some(message => message.type === 'exit'), 'clean TUI exit');
   await waitForCli(() => cliExited, 'clean TUI exit');
   await new Promise(resolveWait => setTimeout(resolveWait, 100));
-  assert.equal(output, cliOutput, 'web and CLI exit terminal output should match');
+  assertTerminalTextMatches('web and CLI exit terminal text should match');
   console.log('PASS CLI and WebSocket exit output match');
 } finally {
   clearTimeout(timer);
