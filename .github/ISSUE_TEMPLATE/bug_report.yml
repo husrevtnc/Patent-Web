@@ -1,0 +1,35 @@
+name: Bug report
+description: Report a reproducible problem in Patent Web.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include API keys, access tokens, private search ideas, or other secrets.
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, browser, Node.js, and Rust versions.
+      placeholder: Ubuntu 24.04, Firefox, Node 22, Rust 1.88
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the steps that reproduce the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Redacted logs
+      description: Remove secrets, personal data, and private search ideas before sharing.

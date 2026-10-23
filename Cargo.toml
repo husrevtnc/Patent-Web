@@ -1,0 +1,94 @@
+[package]
+name = "patent"
+version = "0.14.1"
+edition = "2021"
+autobins = false
+rust-version = "1.88"
+license = "MIT OR Apache-2.0"
+description = "A web-enabled prior-art search for developer tool ideas"
+authors = ["Riad Mukhtarov"]
+readme = "README.md"
+keywords = ["prior-art", "semantic-search", "embeddings", "search", "cli"]
+categories = ["command-line-utilities", "development-tools"]
+exclude = [
+    ".github/",
+    "clippy.toml",
+    "rustfmt.toml",
+    "docs/upstream-patent/",
+    "assets/upstream-patent/",
+    ".plan-source.md",
+    "dist-workspace.toml",
+    "showcase.gif",
+    "showcase.png",
+    "flake.nix",
+    "flake.lock",
+    # Local WIP. It lives under src/ and is untracked but not gitignored, so
+    # `cargo package` sweeps it into the tarball; excluding it here is enforced
+    # by cargo on every publish rather than by remembering to move it aside.
+    # If it ever becomes a real module, the publish verify build fails loudly on
+    # the missing file instead of shipping a broken crate.
+    "src/pipeline.rs",
+]
+
+[lib]
+name = "patent"
+path = "src/lib.rs"
+
+[[bin]]
+name = "patent"
+path = "src/bin/patent/main.rs"
+
+[dependencies]
+# CLI / runtime
+clap = { version = "4", features = ["derive", "env"] }
+clap_complete = "4"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time"] }
+futures = "0.3"
+async-trait = "0.1"
+
+# HTTP + serialization
+reqwest = { version = "0.13", default-features = false, features = ["json", "rustls", "rustls-native-certs", "query"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# HTML scraping (PyPI has no public search API; we parse the search page)
+scraper = "0.27"
+
+# Timestamps — normalising each registry's "last updated" into RFC 3339 and
+# computing the staleness signal. Already in the tree via fastembed/ratatui, so
+# depending on it directly adds no new compile unit.
+time = { version = "0.3", features = ["parsing", "formatting"] }
+
+# Errors
+anyhow = "1"
+thiserror = "2"
+
+# Stable per-user cache dir for the embedding model and config file
+dirs = "7"
+
+# Config file
+toml = "1.1"
+
+# Ranking (M3) — semantic embeddings, model downloads on first run
+fastembed = "7"
+
+# TUI (M5)
+ratatui = "0.30"
+crossterm = "0.29"
+open = "5"
+arboard = "3"
+
+[dev-dependencies]
+wiremock = "0.6"
+tokio-test = "0.4"
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
+
+# Pin the docs.rs build so the native ONNX Runtime dependency (via fastembed)
+# can't silently break the advertised docs.rs page.
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
