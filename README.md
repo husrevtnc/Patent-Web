@@ -165,9 +165,9 @@ Sunucu varsayılan olarak `127.0.0.1:4173` üzerinde dinler. Güvenlik ve erişi
 
 ### Kaynak, atıf ve lisans
 
-Bu depo, [Riad Mukhtarov’un `r14dd/patent` projesinden](https://github.com/r14dd/patent) Rust kaynak kodu ve arayüz davranışını alıp web kullanımına uyarlamaktadır. Upstream README ve ek dosyalar `docs/upstream-patent/`, görseller `assets/upstream-patent/` altında korunur. Upstream kaynak, kendi bildiriminde **MIT veya Apache-2.0** lisanslarından biriyle sunulmuştur; koşullar için [upstream MIT lisansını](LICENSE-MIT) ve [upstream Apache-2.0 lisansını](LICENSE-APACHE) okuyun.
+Bu depo, [Riad Mukhtarov’un `r14dd/patent` projesinden](https://github.com/r14dd/patent) Rust kaynak kodu ve arayüz davranışını alıp web kullanımına uyarlamaktadır. Upstream README ve ek dosyalar `docs/upstream-patent/`, görseller `assets/upstream-patent/` altında korunur. Upstream kaynak, kendi bildiriminde **MIT veya Apache-2.0** lisanslarından biriyle sunulmuştur; koşullar için [upstream MIT lisansını](LICENSE) ve [upstream Apache-2.0 lisansını](LICENSE) okuyun.
 
-Bu depo, yeni katkılar da dâhil olmak üzere **MIT veya Apache-2.0** lisanslarından biriyle sunulur. Upstream kaynak dosyalarındaki telif bildirimleri `NOTICE.md` ve arşivlenmiş upstream dosyalarında korunur. Lisans metinleri için [`LICENSE-MIT`](LICENSE-MIT) ve [`LICENSE-APACHE`](LICENSE-APACHE) dosyalarını okuyun. Patent Web resmî bir upstream ürünü değildir. Bu açıklama hukuki danışmanlık değildir.
+Bu depo, yeni katkılar da dâhil olmak üzere **MIT veya Apache-2.0** lisanslarından biriyle sunulur. Upstream kaynak dosyalarındaki telif bildirimleri `NOTICE.md` ve arşivlenmiş upstream dosyalarında korunur. Lisans metinleri için [`LICENSE`](LICENSE) ve [`LICENSE`](LICENSE) dosyalarını okuyun. Patent Web resmî bir upstream ürünü değildir. Bu açıklama hukuki danışmanlık değildir.
 
 ---
 
@@ -236,9 +236,9 @@ Contribution guidelines are in [`CONTRIBUTING.md`](CONTRIBUTING.md); security re
 
 ### Attribution and licensing
 
-This repository adapts Rust source code and interface behavior from [Riad Mukhtarov’s `r14dd/patent`](https://github.com/r14dd/patent). The upstream README and auxiliary files are retained under `docs/upstream-patent/`; the original demo assets are under `assets/upstream-patent/`. Upstream files are offered under **MIT OR Apache-2.0**; read [`LICENSE-MIT`](LICENSE-MIT) and [`LICENSE-APACHE`](LICENSE-APACHE) and comply with the selected license’s terms.
+This repository adapts Rust source code and interface behavior from [Riad Mukhtarov’s `r14dd/patent`](https://github.com/r14dd/patent). The upstream README and auxiliary files are retained under `docs/upstream-patent/`; the original demo assets are under `assets/upstream-patent/`. Upstream files are offered under **MIT OR Apache-2.0**; read [`LICENSE`](LICENSE) and [`LICENSE`](LICENSE) and comply with the selected license’s terms.
 
-This repository, including its new contributions, is offered under **MIT OR Apache-2.0**. Upstream copyright notices are preserved in `NOTICE.md` and the archived upstream files. Read [`LICENSE-MIT`](LICENSE-MIT) and [`LICENSE-APACHE`](LICENSE-APACHE) for the license texts. Patent Web is not an official upstream product. This notice is not legal advice.
+This repository, including its new contributions, is offered under **MIT OR Apache-2.0**. Upstream copyright notices are preserved in `NOTICE.md` and the archived upstream files. Read [`LICENSE`](LICENSE) and [`LICENSE`](LICENSE) for the license texts. Patent Web is not an official upstream product. This notice is not legal advice.
 
 Patent reports matches found in searched sources; it cannot prove that an idea has never been built or provide a patentability opinion. Do not expose the local server to a public network without adding appropriate access controls.
 
@@ -260,7 +260,7 @@ npm start
 
 Abre [http://127.0.0.1:4173](http://127.0.0.1:4173). La primera búsqueda semántica puede descargar un modelo local de aproximadamente 80 MB. Para Beam Cloud opcional, ejecuta `./start-beam.sh`; la clave se solicita sin mostrarla y no debe guardarse en Git.
 
-El proyecto reutiliza y adapta código de Riad Mukhtarov. Los avisos y licencias originales se conservan en la raíz (`LICENSE-MIT` y `LICENSE-APACHE`). Este proyecto no es oficial ni está respaldado por el autor original. Patent muestra coincidencias de las fuentes consultadas, pero no demuestra que una idea sea inédita ni ofrece asesoramiento legal.
+El proyecto reutiliza y adapta código de Riad Mukhtarov. Los avisos y licencias originales se conservan en la raíz (`LICENSE` y `LICENSE`). Este proyecto no es oficial ni está respaldado por el autor original. Patent muestra coincidencias de las fuentes consultadas, pero no demuestra que una idea sea inédita ni ofrece asesoramiento legal.
 
 ---
 
@@ -280,7 +280,7 @@ npm start
 
 Ouvrez [http://127.0.0.1:4173](http://127.0.0.1:4173). La première recherche sémantique peut télécharger un modèle local d’environ 80 Mo. Pour Beam Cloud en option, lancez `./start-beam.sh`; la clé est demandée sans affichage et ne doit jamais être ajoutée à Git.
 
-Ce projet réutilise et adapte du code de Riad Mukhtarov. Les avis et licences d’origine sont conservés à la racine (`LICENSE-MIT` et `LICENSE-APACHE`). Ce projet n’est ni officiel ni approuvé par l’auteur d’origine. Les résultats portent uniquement sur les sources consultées et ne constituent pas un avis juridique.
+Ce projet réutilise et adapte du code de Riad Mukhtarov. Les avis et licences d’origine sont conservés à la racine (`LICENSE` et `LICENSE`). Ce projet n’est ni officiel ni approuvé par l’auteur d’origine. Les résultats portent uniquement sur les sources consultées et ne constituent pas un avis juridique.
 
 ---
 
@@ -300,7 +300,7 @@ npm start
 
 Öffne [http://127.0.0.1:4173](http://127.0.0.1:4173). Die erste semantische Suche kann ein lokales Modell mit etwa 80 MB herunterladen. Für optionales Beam Cloud starte `./start-beam.sh`; der Schlüssel wird verdeckt abgefragt und gehört nicht in Git.
 
-Dieses Projekt übernimmt und ändert Quellcode von Riad Mukhtarov. Die ursprünglichen Hinweise und Lizenzen bleiben im Stammverzeichnis (`LICENSE-MIT` und `LICENSE-APACHE`) erhalten. Das Projekt ist inoffiziell und wird vom ursprünglichen Autor nicht unterstützt oder bestätigt. Die Ergebnisse beziehen sich nur auf geprüfte Quellen und sind keine Rechtsberatung.
+Dieses Projekt übernimmt und ändert Quellcode von Riad Mukhtarov. Die ursprünglichen Hinweise und Lizenzen bleiben im Stammverzeichnis (`LICENSE` und `LICENSE`) erhalten. Das Projekt ist inoffiziell und wird vom ursprünglichen Autor nicht unterstützt oder bestätigt. Die Ergebnisse beziehen sich nur auf geprüfte Quellen und sind keine Rechtsberatung.
 
 ---
 
@@ -320,7 +320,7 @@ npm start
 
 Abra [http://127.0.0.1:4173](http://127.0.0.1:4173). A primeira busca semântica pode baixar um modelo local de aproximadamente 80 MB. Para usar Beam Cloud opcionalmente, execute `./start-beam.sh`; a chave é solicitada sem exibição e não deve ser incluída no Git.
 
-Este projeto reutiliza e adapta código de Riad Mukhtarov. Os avisos e licenças originais estão preservados na raiz; consulte `LICENSE-MIT` e `LICENSE-APACHE`. O projeto não é oficial nem endossado pelo autor original. Os resultados cobrem apenas as fontes consultadas e não são aconselhamento jurídico.
+Este projeto reutiliza e adapta código de Riad Mukhtarov. Os avisos e licenças originais estão preservados na raiz; consulte `LICENSE` e `LICENSE`. O projeto não é oficial nem endossado pelo autor original. Os resultados cobrem apenas as fontes consultadas e não são aconselhamento jurídico.
 
 ---
 
@@ -340,7 +340,7 @@ npm start
 
 ブラウザーで [http://127.0.0.1:4173](http://127.0.0.1:4173) を開きます。初回のセマンティック検索では約 80 MB のローカルモデルをダウンロードする場合があります。任意の Beam Cloud を使う場合は `./start-beam.sh` を実行します。API キーは Git に保存しないでください。
 
-このプロジェクトは Riad Mukhtarov のコードを再利用・改変しています。元のライセンスと著作権表示はルートにあります（`LICENSE-MIT`、`LICENSE-APACHE`）。本プロジェクトは非公式で、原作者による承認やサポートを受けていません。検索結果は確認した情報源に限られ、法的助言ではありません。
+このプロジェクトは Riad Mukhtarov のコードを再利用・改変しています。元のライセンスと著作権表示はルートにあります（`LICENSE`、`LICENSE`）。本プロジェクトは非公式で、原作者による承認やサポートを受けていません。検索結果は確認した情報源に限られ、法的助言ではありません。
 
 ---
 
@@ -360,7 +360,7 @@ npm start
 
 在浏览器打开 [http://127.0.0.1:4173](http://127.0.0.1:4173)。首次语义搜索可能下载约 80 MB 的本地模型。可选的 Beam Cloud 可通过 `./start-beam.sh` 启动；API 密钥不会显示在输入过程中，也不要将其提交到 Git。
 
-本项目复用并修改了 Riad Mukhtarov 的代码。原始版权声明和许可文件保留在项目根目录（`LICENSE-MIT`、`LICENSE-APACHE`）。本项目不是官方项目，也未获原作者认可。搜索结果仅涉及已查询的数据源，不构成法律意见。
+本项目复用并修改了 Riad Mukhtarov 的代码。原始版权声明和许可文件保留在项目根目录（`LICENSE`、`LICENSE`）。本项目不是官方项目，也未获原作者认可。搜索结果仅涉及已查询的数据源，不构成法律意见。
 
 ---
 
@@ -380,7 +380,7 @@ npm start
 
 افتح [http://127.0.0.1:4173](http://127.0.0.1:4173). قد يُنزّل أول بحث دلالي نموذجاً محلياً بحجم يقارب 80 ميغابايت. لاستخدام Beam Cloud اختيارياً، شغّل `./start-beam.sh`؛ لا تحفظ مفتاح API في Git.
 
-يعيد هذا المشروع استخدام وتعديل شيفرة Riad Mukhtarov. إشعارات حقوق النشر والتراخيص الأصلية محفوظة في جذر المشروع (`LICENSE-MIT` و`LICENSE-APACHE`). المشروع غير رسمي ولا يحظى بتأييد المؤلف الأصلي. النتائج تقتصر على المصادر التي جرى البحث فيها ولا تُعدّ استشارة قانونية.
+يعيد هذا المشروع استخدام وتعديل شيفرة Riad Mukhtarov. إشعارات حقوق النشر والتراخيص الأصلية محفوظة في جذر المشروع (`LICENSE` و`LICENSE`). المشروع غير رسمي ولا يحظى بتأييد المؤلف الأصلي. النتائج تقتصر على المصادر التي جرى البحث فيها ولا تُعدّ استشارة قانونية.
 
 ---
 
@@ -395,8 +395,8 @@ Patent-Web/
 ├── web-smoke.mjs          # HTTP, WebSocket, resize and CLI-parity smoke test
 ├── package.json           # JavaScript dependencies and commands
 ├── Cargo.toml              # Rust CLI crate, built by the web server
-├── LICENSE-MIT             # project license
-├── LICENSE-APACHE          # project license
+├── LICENSE             # project license
+├── LICENSE          # project license
 ├── NOTICE.md                # upstream source attribution
 ├── CONTRIBUTING.md          # development and pull request guide
 ├── SECURITY.md              # security reporting and deployment notes
