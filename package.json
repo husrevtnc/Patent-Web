@@ -16,7 +16,7 @@
     "@xterm/xterm": "^6.0.0",
     "esbuild": "^0.28.2",
     "node-pty": "^1.1.0",
-    "ws": "^8.22.0"
+    "ws": "^8.22.1"
   },
   "allowScripts": {
     "node-pty@1.1.0": true
